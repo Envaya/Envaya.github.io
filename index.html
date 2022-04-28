@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name = "viewport" content = "user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="../../src/style.css">
+    <link rel="stylesheet" href="demo.css">
+    <script src="apiStarter.js" type="module"></script>
+    <script src="asyncStarter.js" type="module"></script>
+    <link rel="shortcut icon" type="image/png" href="../../src/assets/logo-60x54.png">
+    <title>Big Lazy Tables</title>
+</head>
+<body>
+    <main>
+        <section>
+            <div class="inlay">
+                <h1>Asynchronously loaded, randomized data</h1>
+                <div class="controls">
+                    <h2>Controls</h2>
+                    <div id="input-box"></div>
+                </div>
+                <div id="demo-table-container"></div>
+                <div id="added-tables-container"></div>
+                <pre id="output"></pre>
+            </div>
+        </section>
+        <section id="api">
+            <div class="inlay">
+                <h2>Loading data from an API</h2>
+                <p>Initially loads all table data from the fake api
+                    (<a href="https://www.instantwebtools.net/fake-rest-api">https://www.instantwebtools.net/fake-rest-api</a>)</p>
+                <div id="api-demo-table-container"></div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
