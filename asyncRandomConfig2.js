@@ -1,4 +1,4 @@
-const tableConfig = {
+const getTableConfig = () => ( {
 
     app: {
         rowHeight: 60,
@@ -11,12 +11,12 @@ const tableConfig = {
                     state:  ''
                 }
         },
-        columnWidths: [260, 300, 250, 200]
+        columnWidths: [150, 560, 250, 150, 560, 250, 560, 540]
     },
     testing: {
         SIMULATED_FETCH_DELAY: 150,
         TEST_FETCH_DELAY:      150 + 50
     }
-};
+});
 
-export {tableConfig};
+export {getTableConfig};

@@ -1,4 +1,4 @@
-import { asyncRandomService } from "./asyncRandomService.js";
+import { asyncAPIService } from "./asyncAPIService.js";
 import { TableController }  from "./src/main/controller/tableController.js";
 import { inputBox }         from "./src/util/inputBox.js";
 import { outputBox }        from "./src/util/outputBox.js";
@@ -7,13 +7,13 @@ import {TableHeadersProjector} from "./src/main/projectors/header/tableHeadersPr
 import {FiltersProjector} from "./src/main/projectors/header/filtersProjector.js";
 import {TableBodyProjector} from "./src/main/projectors/body/tableBodyProjector.js";
 import {TableFooterProjector} from "./src/main/projectors/footer/tableFooterProjector.js";
-import {getTableConfig} from "./asyncRandomConfig2.js";
+import {tableConfig} from "./asyncRandomConfig.js";
 
 /**
  * Initialize service, model and controller.
  */
-const services          = asyncRandomService(100);
-const presentationModel = TablePresentationModel(getTableConfig());
+const services          = await asyncAPIService(100);
+const presentationModel = TablePresentationModel(tableConfig);
 const tableController   = TableController(presentationModel, services);
 
 /**
@@ -25,7 +25,7 @@ tableController.init();
  * Define HTML rootElement which represents the top-level HTML Element.
  * All other elements must be descendants of this element.
  */
-const rootElement = document.getElementById('demo-table-container');
+const rootElement = document.getElementById('api-demo-table-container');
 
 /**
  * Initializing the views.
@@ -33,10 +33,3 @@ const rootElement = document.getElementById('demo-table-container');
 TableHeadersProjector(tableController, rootElement);
 FiltersProjector     (tableController, rootElement);
 TableBodyProjector   (tableController, rootElement);
-TableFooterProjector (tableController, rootElement);
-
-/**
- * Initializing separate views for development and demonstration purposes.
- */
-inputBox (tableController);
-outputBox(tableController);

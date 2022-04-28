@@ -84,6 +84,7 @@ const TableController = (presentationModel, service) => {
      * Resets the entries in the model with the new data.
      */
     const getFilteredData = () => {
+        presentationModel.setScrollIndex(0);
         const startIndex = presentationModel.getScrollIndex();
         const endIndex   = startIndex + 3 * presentationModel.get_NUMBER_OF_RENDERED_ROWS();
         service.getDataWithFilter(presentationModel.getFilter(), startIndex, endIndex)
@@ -239,10 +240,7 @@ const TableController = (presentationModel, service) => {
      * @param { !Number } scrollTop - New scrollTop, provided by the tableBody; mandatory.
      */
     const scrollTopChangeHandler = scrollTop => {
-        const scrollTopLimit = presentationModel.getCurrentDataSetSize() * presentationModel.getRowHeight() -
-            presentationModel.get_NUMBER_OF_RENDERED_ROWS() * presentationModel.getRowHeight();
-        scrollTop = scrollTop > scrollTopLimit ? scrollTopLimit : scrollTop;
-        presentationModel.setScrollTop(scrollTop);
+
         /**
          * assert that our use of scrollTo does not trigger our own scroll handler again.
          */
@@ -250,6 +248,12 @@ const TableController = (presentationModel, service) => {
             return;
         }
         ignoreScrollEvent = true;
+
+        requestAnimationFrame(_ => {
+            const scrollTopLimit = presentationModel.getCurrentDataSetSize() * presentationModel.getRowHeight() -
+                presentationModel.get_NUMBER_OF_RENDERED_ROWS() * presentationModel.getRowHeight();
+            scrollTop = scrollTop > scrollTopLimit ? scrollTopLimit : scrollTop;
+            presentationModel.setScrollTop(scrollTop);
 
             /**
              * Calculate the scrollIndex based on the current scroll position.
@@ -272,6 +276,7 @@ const TableController = (presentationModel, service) => {
             updateScrollIndex(scrollIndex);
 
             ignoreScrollEvent = false;
+        });
     }
 
     /**
