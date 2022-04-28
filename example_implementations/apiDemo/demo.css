@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Roboto+Slab:wght@400;500&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif !important;
+}
+.inlay {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1600px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.controls {
+    padding: 1rem;
+    border: solid 1px dimgray;
+    margin-bottom: 2rem;
+}
+
+.controls h2 {
+    margin-top: 0;
+}
+
+#input-box > * {
+    margin-right: 1rem;
+}
+
+.loading-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#api {
+    background: rgba(96,46,234,0.8);
+    color: white !important;
+}
+
+
+#api p {
+    font-family: 'Roboto', sans-serif;
+}
+
+#api a {
+    color: white;
+}
+
+h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 40px;
+    line-height: 60px;
+}
+
+#api h2 {
+    color: white;
+}
+#api-demo-table-container {
+    width: 1014px;
+    color: black !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+#api .table-header-cell {
+    background: white;
+}
+
+#api .table-header-cell0 {
+    border-radius: 5px 0 0 0;
+}
+
+#api .table-header-cell3 {
+    border-radius: 0 5px 0 0;
+}
+
+#api .table-header-cell:nth-child(even) {
+    background: white !important;
+}
+
+#api .table-cell:nth-child(even) {
+    background: white !important;
+}
+
+#api .table-body {
+    border-radius: 0 0 10px 10px;
+}
